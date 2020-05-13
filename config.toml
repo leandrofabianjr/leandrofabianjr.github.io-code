@@ -1,72 +1,16 @@
-baseurl      = "localhost"
+baseurl      = "https://leandrofabianjr.github.io/"
 title        = "Leandro Fabian Jr."
 languageCode = "br"
 defaultContentLanguage = "br"
-theme        = "hello-friend-ng"
-paginate     = 10
 
-[params]
-  dateform        = "Jan 2, 2006"
-  dateformShort   = "Jan 2"
-  dateformNum     = "2006-01-02"
-  dateformNumTime = "2006-01-02 15:04 -0700"
-
-  
-
-  # Set disableReadOtherPosts to true in order to hide the links to other posts.
-  disableReadOtherPosts = false
-
-  # Metadata mostly used in document's head
-  description = "Projetos de Leandro Fabian Jr."
-  keywords = "homepage, blog"
-  images = [""]
-
-  # Directory name of your blog content (default is `content/posts`)
-  contentTypeName = "posts"
-
-  # Default theme "light" or "dark"
-  defaultTheme = "dark"
-
-# copyright = '<a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>'
-
-[taxonomies]
-    category = "blog"
-    tag      = "tags"
-    series   = "series"
-
-[languages]
-  [languages.br]
-    title = "Leandro Fabian Jr."
-    subtitle = "Meus projetos"
-    keywords = ""
-    readOtherPosts = "Leia outras postagens"
-    homeSubtitle = "Meus projetos"
-
-  [languages.en]
-    title = "Leandro Fabian"
-    subtitle = "My projects"
-    keywords = ""
-    # copyright = '<a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>'
-    readOtherPosts = "Leia outras postagens"
-    homeSubtitle = "Meus projetos"
-
-    [languages.br.params.logo]
-      logoText = "/leandrofabianjr"
-      logoHomeLink = "/"
-    # or
-    #
-    # path = "/img/your-example-logo.svg"
-    # alt = "Your example logo alt text"
-
-  # And you can even create generic menu
-  [menu]
-    [[menu.main]]
-        identifier = "projetos"
-        name       = "Projetos"
-        url        = "/posts"
-    [[menu.main]]
-        identifier = "about"
-        name = "Sobre"
-        pre = "<i class='fa fa-heart'></i>"
+[menu]
+  [[menu.main]]
+      identifier = "projetos"
+      name       = "Projetos"
+      title = "Meus projetos"
+      url        = "/projects"
+  [[menu.main]]
+      identifier = "about"
+      name = "Sobre"
+      title = "Sobre mim"
         url = "/about"
-        weight = -110
