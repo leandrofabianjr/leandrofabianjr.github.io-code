@@ -1,0 +1,26 @@
+{{ define "main" }}
+<h1 class="mb-3">Projetos</h1>
+<p class="mb-4">Algumas coisas que faço em meu tempo livre</p>
+<div class="grid-list">
+    {{ range .Pages }}
+    <article class="grid-list-item">
+        <div class="card project">
+            <div class="card-header">
+                <h2 class="card-title project-title">{{ .Title }}</h2>
+            </div>
+            <div class="card-detail project-detail">
+                {{ .Description }}
+            </div>
+            {{ if .Params.link }}
+            <div class="card-footer">
+                <a href="{{ .Permalink }}" title="Ver mais detalhes">Mais detalhes</a>
+                <span class="card-footer-spacer"></span>
+                <a target="_blank" href="{{ .Params.link }}" title="Visualizar demonstração"><i class="fas fa-external-link-alt"></i></a>
+                <a target="_blank" href="{{ .Params.githubLink }}" title="Abrir repositório no GitHub"><i class="fab fa-github"></i></a>
+            </div>
+            {{ end }}
+        </div>
+    </article>
+    {{ end }}
+</div>
+{{ end }}

@@ -1,0 +1,68 @@
+{{ define "custom-head" }}
+
+<script type="application/javascript">
+    var text, $typing;
+
+    function typing(i = 1) {
+        if (i > text.length) {
+            $typing.textContent = text;
+            blinking();
+            return;
+        }
+        $typing.textContent = text.slice(0, i++) + '_';
+        setTimeout(function() {
+            typing(i);
+        }, 200);
+    }
+
+    function blinking(time = 8) {
+        if (!time) {
+            $typing.textContent.length ?
+                erasing() :
+                typing();
+            return;
+        }
+        if ($typing.textContent[$typing.textContent.length - 1] == '_') {
+            $typing.textContent = $typing.textContent.slice(0, -1);
+        } else {
+            $typing.textContent += '_';
+        }
+        setTimeout(function() {
+            blinking(--time);
+        }, 500);
+    }
+
+    function erasing(i = $typing.textContent.length) {
+        if (i < 0) {
+            $typing.textContent = '';
+            blinking();
+            return;
+        }
+        $typing.textContent = text.slice(0, i) + '_';
+        setTimeout(function() {
+            erasing(--i);
+        }, 100);
+    }
+
+    window.onload = () => {
+        $typing = document.getElementById('typing');
+        text = $typing.textContent;
+        $typing.textContent = '';
+        typing();
+    }
+</script>
+
+{{ end }} {{ define "main" }}
+<div class="terminal">
+    <div class="bar">
+        <div class="button">−</div>
+        <div class="button">▢</div>
+        <div class="button">✖</div>
+    </div>
+    <div class="content">
+        <h2><span class="dolar">$</span> <span id="typing">./leandrofabianjr</span></h2>
+    </div>
+
+</div>
+
+{{ end }}

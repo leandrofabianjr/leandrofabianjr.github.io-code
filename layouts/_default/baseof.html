@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ block "title" . }} {{ .Site.Title }} {{ end }}</title>
+    {{ $style := resources.Get "scss/main.scss" | toCSS | minify | fingerprint }}
+    <link rel="stylesheet" href="{{ $style.Permalink }}">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito&family=Roboto&display=swap" rel="stylesheet"> {{ block "custom-head" . }} {{ end }}
+    <script src="https://kit.fontawesome.com/2cf9b84743.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div class="navbar">
+                <a class="logo" href="/" title="Home">{{ .Site.Title }}</span>
+                    <nav class="navbar-menu">
+                        {{ range .Site.Menus.main }}
+                        <a class="navbar-menu-item" href="{{ .URL }}" title="{{ .Title }}">{{ .Name }}</a> {{ end }}
+                </nav>
+            </div>
+        </div>
+    </header>
+    <main aria-role="main" class="container">
+        {{ block "main" . }} {{ end }} {{ block "footer" . }} {{ end }}
+    </main>
+</body>
+
+</html>
