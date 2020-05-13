@@ -2,7 +2,6 @@ baseurl      = "https://leandrofabianjr.github.io/"
 title        = "Leandro Fabian Jr."
 languageCode = "br"
 defaultContentLanguage = "br"
-publishDir = "docs"
 
 [menu]
   [[menu.main]]
